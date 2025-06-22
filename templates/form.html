@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./css/styles.css">    
+    <link type="text/css" rel="stylesheet" href="./css/header.css">        
+    <link type="text/css" rel="stylesheet" href="./css/footer.css"> 
+    <script src="./js/payBuddy.js" defer></script>
+</head>
+<header>
+
+    <h1>PayBuddy</h1>
+
+    <ul>
+        <li>Home</li>
+        <li>Send & Request</li>
+        <li>Transactions</li>
+        <li>Wallet</li>
+        <li>Help & Support</li>
+    </ul>
+
+    <div id="user-div">
+        <button id="login">Log In</button>
+        <button id="signup">Sign Up</button>
+    </div>
+
+</header>
+<body>
+
+    <form method="POST" action="/send" enctype="multipart/form-data" id="payment-form">
+
+        <div id="sender-recipient-info">
+
+            <div id="sender-div">
+                
+                <h2 class="section-heading">Sender Details</h2>
+
+                <div class="name-credentials">
+
+                    <div class="text-field-container">
+                        <label for="sender-first-name">First Name:</label> 
+                        <input required type="text" id="sender-first-name" name="sender-first-name" pattern="[A-Za-z ]*">
+                    </div>
+
+                    <div class="text-field-container">
+                        <label for="sender-last-name">Last Name:</label> 
+                        <input required type="text" id="sender-last-name" name="sender-last-name" pattern="[A-Za-z ]*">
+                    </div>
+                </div>
+
+                <div id="image-container">
+                    <img id="image-preview" alt="Your Image Will Preview Here">
+
+                    <div id="button-div">
+                        <label for="image-upload-native" id="image-upload-custom" class="custom-file-label">Browse</label>
+                        <input required type="file" id="image-upload-native" class="custom-file-input" accept="image/*" name="uploadedImage">
+                        <span id="no-image" class="upload-error collapse">Please Upload a Valid Image File.</span>
+                        <span id="invalid-size" class="upload-error collapse">Your File Cannot Be Larger Than 200kb.</span>
+                        <span id="invalid-file" class="upload-error collapse">Invalid File Type.</span>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div id="recipient-div">
+
+                <h2 class="section-heading">Recipient Details</h2>
+
+                <div class="name-credentials">
+                    <div class="text-field-container">
+                        <label for="recipient-first-name">First Name:</label> 
+                        <input required type="text" id="recipient-first-name" name="recipient-first-name"  pattern="[A-Za-z ]*">
+                    </div>
+
+                    <div class="text-field-container">
+                        <label for="recipient-last-name">Last Name:</label>
+                        <input required type="text" id="recipient-last-name" name="recipient-last-name"  pattern="[A-Za-z ]*">
+                    </div>
+                </div>
+
+                <div id="recipient-message-div">
+                    <label for="recipient-message">Message:</label> 
+                    <textarea required minlength="10" id="recipient-message" name="recipient-message" placeholder="Enter Your Message Here."></textarea>
+                </div>
+
+                <h4 class="section-subheading"> Notify Recipient </h4>
+            
+                <div id="notifications">
+
+                    <input type="radio" id="email" name="notification-method" value="Email">
+                    <label for="email">Email</label> 
+
+                    <input type="radio" id="SMS" name="notification-method" value="SMS">
+                    <label for="SMS">SMS</label> 
+
+                    <input type="radio" id="no-notification" name="notification-method" value="None" checked>
+                    <label for="no-notification">Do not notify</label> 
+
+                    
+                    <div class="email collapse">
+                        <label for="recipient-email">Email:</label> 
+                        <input type="email" id="recipient-email">
+                    </div>
+
+                    <div class="phone-number collapse">
+                        <label for="recipient-number">Phone Number:</label> 
+                        <input type="text" id="recipient-number" maxlength="10" pattern="^\d{10}$" >
+                    </div>
+
+                </div>
+            
+            </div>
+
+        </div>
+
+        <div id="payment-div">
+           
+            <h2 class="section-heading">Payment Details</h2>
+
+                <div id="card-selection-number">
+                    <div id="card-type">
+                        <label for="credit-card-type">Card Type: </label>
+                        <select required id="credit-card-type" name="credit-card-type">
+                            <option value="" selected disabled hidden>Select Card Type</option>
+                            <option value="Visa" >Visa</option>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="American Express">American Express</option>
+                            <option value="Discover">Discover</option>
+                        </select>
+                    </div>
+
+                    <div id="card-number">
+                        <label for="recipient-card">Card Number:</label>
+                        <input required type="text" id="recipient-card" name="recipient-card" placeholder="XXXX-XXXX-XXXX-XXXX"  pattern="^\d{4}-\d{4}-\d{4}-\d{4}$">
+                    </div>
+                </div>
+
+                <div id="card-security-amount">
+                    <div id="exp-date">            
+                        <label for="expiration-date">Expiration Date:</label>
+                        <input required type="text" id="expiration-date" name="expiration-date" placeholder="mm/yyyy" pattern="\d{2}\/\d{4}$">
+                    </div>
+
+                    <div id="ccv">
+                        <label for="card-ccv">CCV:</label> 
+                        <input required type="password" minlength="3" maxlength="4" id="card-ccv" name="card-ccv" pattern="[0-9]+">
+                    </div>
+
+                    <div id="amount-div">
+                        <label for="amount">Amount ($):</label>
+                        <input required type="number" step="0.01" min="0.01" id="amount" name="amount" pattern="[0-9]+" placeholder="$0.00">
+                    </div>
+                </div>
+        </div>
+
+        <div id="terms-conditions">
+            <input required type="checkbox" name="terms-conditions" id="terms-conditions-input">
+            <label for="terms-conditions">I agree to the <a target="_blank" href="">Terms and Conditions</a></label> 
+        </div>
+            
+        <div id="button-container">
+            <button type="submit" id="submit-button">Send</button>
+        </div>
+
+    </form>
+
+</body>
+
+<footer> 
+    
+    <h1>PayBuddy</h1>
+
+    <div id="upper-footer">
+
+        <ul>
+            <li>Help</li>
+            <li>Contact</li>
+            <li>Fees</li>
+            <li>Security Center</li>
+            <li>Privacy Center</li>
+            <li>Shop</li>
+            <li>Apps</li>
+            <li>Enterprise</li>
+            <li>Partners</li>
+        </ul>
+
+    </div>
+
+    <div id="lower-footer">
+
+        <ul>
+            <li>About</li>
+            <li>Newsroom</li>
+            <li>Jobs</li>
+            <li>Investor Relations</li>
+            <li>Government Relations</li>
+        </ul>
+
+        <ul>
+            <li>&#169;1999-2025</li>
+            <li>Accessibility</li>
+            <li>Privacy Statement</li>
+            <li>Cookies</li>
+            <li>Legal</li>
+        </ul>
+        
+    </div>
+   
+</footer>
+</html>

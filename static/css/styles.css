@@ -1,0 +1,351 @@
+:root {
+    --valid-green: #2add36;
+    --red-theme: #fb5a5a;
+}
+
+body {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    font-family: Optima, sans-serif;
+    margin: 0;
+}
+
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    border-right: 5px solid #fb5a5a;
+    border-left: 5px solid #fb5a5a;
+}
+
+#sender-recipient-info {
+    display: flex;
+    align-items: start;
+
+    border-bottom:  5px solid #fb5a5a;
+}
+
+#sender-div, #recipient-div {
+
+    padding: 10px;
+    width: 607px;
+    height: auto;
+    position: relative;
+
+}
+
+#sender-div {
+    border-right:  5px solid #fb5a5a;
+}
+
+.section-heading {
+    font-size: 30px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.name-credentials {
+    display:flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+}
+
+.text-field-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+} 
+
+#sender-first-name:valid, #sender-last-name:valid {
+    background-color: var(--valid-green);
+}
+
+#image-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+
+}
+
+#image-preview {
+    align-self: center;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px var(--red-theme) dashed;
+    font-size: 20px;
+}
+
+#image-preview.valid-image {
+    border: 10px #03d311 dashed;
+}
+
+#image-upload-native {
+    display: none; 
+}
+
+.upload-error {
+    color: red;
+    font-weight: bold;
+}
+
+#button-div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#image-upload-custom {
+    padding: 10px 20px;
+    background-color: var(--red-theme);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+
+    margin: 20px 0px;;
+
+    box-shadow: 4px 4px black;
+   
+  }
+
+#image-upload-custom:hover {
+    background-color: #ff0000;
+}
+
+.section-subheading {
+    font-size: 24px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#recipient-message-div {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px 70px;
+    font-size: 20px;
+
+}
+
+textarea {
+
+    font-size: 18px;
+    resize: none;
+    min-height: 250px;
+    border: 2px solid black;
+    background-color: var(--red-theme);
+    color: white;
+    box-shadow: 4px 4px black;
+
+}
+
+#notifications {
+    text-align: center;
+    font-size: 25px;
+}
+
+
+#notifications input {
+    margin-left: 25px;
+    accent-color: var(--red-theme);
+}
+
+.email, .phone-number {
+    padding: 30px 0px;
+}
+
+.email input , .phone-number input {
+    font-size: 20px;
+    border: 2px solid black;
+    background-color: var(--red-theme);
+    color: white;
+    box-shadow: 4px 4px black;
+}
+
+.email.collapse, .phone-number.collapse {
+    display: none;
+}
+
+#payment-div {
+    padding: 10px;
+    position: relative;
+    width: 1000px;
+}
+
+#card-selection-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#card-type { 
+    font-size: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card-type select {
+    font-size: 25px;
+    background-color: var(--red-theme);
+    margin-top: 10px;
+    color: white;
+    box-shadow: 4px 4px black;
+    border: 2px black solid;
+    text-align: center;
+}
+
+#card-number { 
+    font-size: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card-number input {
+    align-self: center;
+    margin-top: 10px;
+    width: 330px;
+    box-shadow: 4px 4px black;
+    font-size: 25px;
+    background-color: var(--red-theme);
+    color: white;
+    border: 2px black solid;
+    text-align: center;
+}
+
+#card-security-amount {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#exp-date { 
+    font-size: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    left: 65px;
+}
+
+#exp-date input, #ccv input {
+    width: 185px;
+    text-align: center;
+    box-shadow: 4px 4px black;
+    font-size: 25px;
+    background-color: var(--red-theme);;
+    color: white;
+    box-shadow: 4px 4px black;
+    border: 2px black solid;
+}
+  
+#ccv { 
+    font-size: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    left: 15px;
+}
+
+#ccv input {
+    width: 100px;
+}
+
+#amount-div { 
+    font-size: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    right: 50px;
+}
+
+#amount-div input {
+    width: 250px;
+    text-align: center;
+    box-shadow: 4px 4px black;
+    font-size: 25px;
+    background-color: var(--red-theme);
+    color: white;
+    box-shadow: 4px 4px black;
+    border: 2px black solid;
+}
+
+#terms-conditions {
+    margin-top: 55px;
+    font-size: 20px;
+}
+
+#button-container {
+    margin-top: 30px;
+}
+
+#submit-button {
+    width: 175px;
+    height: 65px;
+    font-size: 35px;
+    box-shadow: 4px 4px black;
+    padding: 10px 20px;
+    background-color: var(--red-theme);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+#submit-button:hover {
+    background-color: #ff0000;
+}
+
+#submit-button:disabled {
+    background-color: #ffa6a6;
+}
+
+
+.name-credentials input {
+    background-color: var(--red-theme);;
+    color: white;
+    font-size: 20px;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+}
+
+
+#recipient-first-name:valid, #recipient-last-name:valid, #recipient-message:valid {
+    background-color:var(--valid-green);
+ }
+
+ #recipient-email:valid, #recipient-number:valid, #expiration-date:valid{
+    background-color:var(--valid-green);
+ }
+
+ #credit-card-type:valid, #recipient-card:valid, #card-ccv:valid, #amount:valid {
+    background-color: var(--valid-green);
+ }
+
+a {
+    color: var(--red-theme);;
+    font-weight: bold;
+}
+
+a:visited {
+    color: var(--red-theme);;
+}

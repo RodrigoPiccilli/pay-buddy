@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success!</title>
+    <link type="text/css" rel="stylesheet" href="./css/success.css"> 
+    <link type="text/css" rel="stylesheet" href="./css/styles.css">       
+    <link type="text/css" rel="stylesheet" href="./css/header.css">        
+    <link type="text/css" rel="stylesheet" href="./css/footer.css"> 
+    <script src="./js/payBuddy.js" defer></script>
+</head>
+<header>
+
+    <h1>PayBuddy</h1>
+
+    <ul>
+        <li>Home</li>
+        <li>Send & Request</li>
+        <li>Transactions</li>
+        <li>Wallet</li>
+        <li>Help & Support</li>
+    </ul>
+
+    <div id="user-div">
+        <button id="login">Log In</button>
+        <button id="signup">Sign Up</button>
+    </div>
+
+</header>
+<body>
+    
+    <div id="confirmation">
+
+        <div id="confirmation-header">
+            <img id="confirmation-image" src="/images/confirmation.png">
+            <h2>Payment Sent!</h2>
+        </div>
+
+        <img id="image-uploaded" src="{{imagePath}}" alt="Uploaded Image"> 
+        
+        <h2 id="amountPaid">${{paymentAmount}}</h2>
+
+        <h6 id="recipient">Paid to {{recipientFirstName}} {{recipientLastName}} </h6>
+
+        <div id="confirmation-details">
+
+            <div id="payment-details">    
+                <h3 id="payment-method">Paid with</h3>
+                <p><span class="subheadings">{{creditCardType}}</span>: Ending in {{lastFourDigits}}.</p>
+            </div>
+
+
+            <div id="notification-details">
+
+                <h3 id="notification-delivery">Notification Delivery</h3> 
+
+                <p><span class="subheadings">Notifications:</span> {{notificationMethod}}.</p>
+
+                {{#if recipientEmail}}
+                    <p><span class="subheadings">Email:</span> {{recipientEmail}}</p>
+                {{/if}}
+
+                {{#if recipientPhone}}
+                    <p><span class="subheadings">Phone Number:</span> {{recipientPhone}}</p>
+                {{/if}}
+        
+            </div>
+
+        </div>
+
+        <div id="recipient-details"> 
+            <h6 id="sender">Paid by {{senderFirstName}} {{senderLastName}}</h6>
+        </div>
+        
+        <p id="recipient-message"><span class="subheadings">Message:</span> {{recipientMessage}}</p>
+
+    </div>
+
+    <button id="return">
+        &larr; <a href="/">Back</a>
+    </button>
+
+</body>
+<footer> 
+    
+    <h1>PayBuddy</h1>
+
+    <div id="upper-footer">
+
+        <ul>
+            <li>Help</li>
+            <li>Contact</li>
+            <li>Fees</li>
+            <li>Security Center</li>
+            <li>Privacy Center</li>
+            <li>Shop</li>
+            <li>Apps</li>
+            <li>Enterprise</li>
+            <li>Partners</li>
+        </ul>
+
+    </div>
+
+    <div id="lower-footer">
+
+        <ul>
+            <li>About</li>
+            <li>Newsroom</li>
+            <li>Jobs</li>
+            <li>Investor Relations</li>
+            <li>Government Relations</li>
+        </ul>
+
+        <ul>
+            <li>&#169;1999-2025</li>
+            <li>Accessibility</li>
+            <li>Privacy Statement</li>
+            <li>Cookies</li>
+            <li>Legal</li>
+        </ul>
+        
+    </div>
+   
+</footer>
+</html>

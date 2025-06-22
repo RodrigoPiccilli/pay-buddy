@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Error</title>
+    <link type="text/css" rel="stylesheet" href="./css/error.css"> 
+    <link type="text/css" rel="stylesheet" href="./css/styles.css">       
+    <link type="text/css" rel="stylesheet" href="./css/header.css">        
+    <link type="text/css" rel="stylesheet" href="./css/footer.css"> 
+    <script src="./js/payBuddy.js" defer></script>
+</head>
+<header>
+    
+    <h1>PayBuddy</h1>
+
+    <ul>
+        <li>Home</li>
+        <li>Send & Request</li>
+        <li>Transactions</li>
+        <li>Wallet</li>
+        <li>Help & Support</li>
+    </ul>
+
+    <div id="user-div">
+        <button id="login">Log In</button>
+        <button id="signup">Sign Up</button>
+    </div>
+
+</header>
+<body>
+    
+    <div id="error">
+
+        <div id="error-header">
+            <img id="error-image" src="/images/error.png">
+
+            {{#if bannedUser}}
+                <h2 id="error-message">Error 403 - Forbidden</h2>
+            {{else}}
+                <h2 id="error-message">Error 400 - Bad Request</h2>
+            {{/if}}
+
+        </div>
+
+        {{#if bannedUser}}
+            <h2 id="banned-error" >{{{bannedUser.bannedUser}}}</h2>
+        {{else}}
+            <h2>Your Transaction Has Been Denied Due To the Following: </h2>
+        {{/if}}
+
+       {{#each errors}}
+            {{#if this.errorSenderFirstName}}
+                <p><span class="error-reason">Sender First Name: </span>{{this.errorSenderFirstName}}.</p>
+            {{/if}}
+
+            {{#if this.errorSenderLastName}}
+                <p><span class="error-reason">Sender Last Name: </span>{{this.errorSenderLastName}}.</p>
+            {{/if}}
+
+            {{#if this.noFile}}
+                <p><span class="error-reason">File Upload: </span>{{this.noFile}}.</p>
+            {{/if}}
+
+            {{#if this.largeFile}}
+                <p><span class="error-reason">File Upload: </span>{{this.largeFile}}.</p>
+            {{/if}}
+
+            {{#if this.errorRecipientFirstName}}
+                <p><span class="error-reason">Recipient First Name: </span>{{this.errorRecipientFirstName}}.</p>
+            {{/if}}
+
+            {{#if this.errorRecipientLastName}}
+                <p><span class="error-reason">Recipient Last Name: </span>{{this.errorRecipientLastName}}.</p>
+            {{/if}}
+
+            {{#if this.errorRecipientMessage}}
+                <p><span class="error-reason">Recipient Message: </span>{{this.errorRecipientMessage}}.</p>
+            {{/if}}
+
+            {{#if this.errorRecipientEmail}}
+                <p><span class="error-reason">Recipient Email: </span>{{this.errorRecipientEmail}}.</p>
+            {{/if}}
+
+            {{#if this.errorRecipientPhone}}
+                <p><span class="error-reason">Recipient Phone Number: </span>{{this.errorRecipientPhone}}.</p>
+            {{/if}}
+
+            {{#if this.errorCreditCardType}}
+                <p><span class="error-reason">Recipient Credit Card Type: </span>{{this.errorCreditCardType}}.</p>
+            {{/if}}
+
+            {{#if this.errorCreditCardNumber}}
+                <p><span class="error-reason">Recipient Credit Card Number: </span>{{this.errorCreditCardNumber}}.</p>
+            {{/if}}
+
+            {{#if this.expiredCard}}
+                <p><span class="error-reason">Credit Card Expiration: </span>{{expiredCard}}.</p>
+            {{/if}}
+
+            {{#if this.errorExpirationDate}}
+                <p><span class="error-reason">Credit Card Expiration: </span>{{this.errorExpirationDate}}.</p>
+            {{/if}}
+
+            {{#if this.errorCCV}}
+                <p><span class="error-reason">Credit Card CCV: </span>{{this.errorCCV}}.</p>
+            {{/if}}
+
+            {{#if this.errorPayment}}
+                <p><span class="error-reason">Payment Amount: </span>{{this.errorPayment}}.</p>
+            {{/if}}
+
+            {{#if this.errorTermsAndConditions}}
+                <p><span class="error-reason">Terms and Conditions: </span>{{this.errorTermsAndConditions}}.</p>
+            {{/if}}
+
+        {{/each}}
+
+    </div>
+
+
+    <button id="return-from-error">
+        
+        &larr; <a href="/">Back</a>
+    
+    </button>
+
+
+</body>
+<footer> 
+    
+    <h1>PayBuddy</h1>
+
+    <div id="upper-footer">
+        <ul>
+            <li>Help</li>
+            <li>Contact</li>
+            <li>Fees</li>
+            <li>Security Center</li>
+            <li>Privacy Center</li>
+            <li>Shop</li>
+            <li>Apps</li>
+            <li>Enterprise</li>
+            <li>Partners</li>
+        </ul>
+    </div>
+
+    <div id="lower-footer">
+        <ul>
+            <li>About</li>
+            <li>Newsroom</li>
+            <li>Jobs</li>
+            <li>Investor Relations</li>
+            <li>Government Relations</li>
+        </ul>
+
+        <ul>
+            <li>&#169;1999-2025</li>
+            <li>Accessibility</li>
+            <li>Privacy Statement</li>
+            <li>Cookies</li>
+            <li>Legal</li>
+        </ul>
+    </div>
+   
+</footer>
+</html>
